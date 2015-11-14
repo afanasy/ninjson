@@ -1,11 +1,3 @@
-/*{
-  "name": "ninjson",
-  "version": "1.0.0",
-  "homepage": "https://github.com/afanasy/ninjson",
-  "author": "Afanasy Kurakin",
-  "license": "MIT"
-}*/
-
 $.nj = function (d) {
   if (_.isString(d)) {
     var
@@ -25,7 +17,7 @@ $.nj = function (d) {
       attr[m[1]] = value
       d = d.substr(0, m.index) + d.substr(m.index + m[0].length)
     }
-    d = d.split('.')      
+    d = d.split('.')
     if (d[0] === '')
       d[0] = 'div'
     return $('<' + d[0] + '>').addClass(d.splice(1).join(' ')).attr(attr)
@@ -35,11 +27,11 @@ $.nj = function (d) {
       return $.nj(d)
     })
   }
-  if (_.isObject(d)) {      
+  if (_.isObject(d)) {
     var box = _.map(d, function (value, key) {
       if (_.isString(value))
         return $.nj(key).text(value)
-      else 
+      else
         return $.nj(key).nj(value)
     })
     if (_.size(box) == 1)
@@ -50,10 +42,10 @@ $.nj = function (d) {
 
 $.fn.nj = function (d) {
   var box = $(this)
-  if (!_.isString(d) && !_.isArray(d) && _.isObject(d) && !_.keys(d)[0].match(/\.|\[|\]|#/)) {
+  if (!_.isString(d) && !_.isArray(d) && _.isObject(d) && (!_.size(d) || !_.keys(d)[0].match(/\.|\[|\]|#/))) {
     _.each(d, function (value, key) {
       if (_.isFunction(box[key])) {
-        box[key](value) 
+        box[key](value)
       }
     })
     return this
