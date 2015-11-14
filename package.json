@@ -1,0 +1,19 @@
+{
+  "name": "ninjson",
+  "version": "1.0.0",
+  "description": "Jquery JSON to HTML parser ",
+  "main": "ninjson.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/afanasy/ninjson.git"
+  },
+  "author": "Afanasii Kurakin <afanasy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afanasy/ninjson/issues"
+  },
+  "homepage": "https://github.com/afanasy/ninjson"
+}
